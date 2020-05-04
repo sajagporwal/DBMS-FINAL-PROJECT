@@ -1,74 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Youtube Link To Demo: 
+ [WANDERER]( https://youtu.be/Nq00RQAPJc4 )
+  
+  For running this project in local kindly refer installation section.
 
-## Available Scripts
+## UML Diagram:
+![UML](https://i.imgur.com/AB94NWV.jpg)
+## Sequence Diagram:
+## System To API
+![SystemToAPI](https://i.imgur.com/2BqGnNL.jpg)
+## Domain Objects To User
+![DomainObjectsToUser](https://i.imgur.com/D8apJ9V.jpg)
+## User To User
+![UserToUser](https://i.imgur.com/6Cf1Dh7.jpg)
+## Domain Objects
+![DomainObjects](https://i.imgur.com/oQUOVbJ.jpg))
 
-In the project directory, you can run:
+## 3 potential domain objects
+1. Airlines
+2. Hotels
+3. Bookings
 
-### `npm run dev`
-Starts both server and client concurrently.
+## 3 potential human users
+1. Website administrator
+2. Vendor
+    Airline
+    Hotel
+    Client
+3. Guest
+    Member
+    
 
-### `npm start`
+## 3 goals the user could accomplish ( For each human user)
+1. Member -: Book airline, Book Hotel, Check Orders, browse, cancel the order    
+2. Web administrator-: Remove vendors, add new vendors
+3. Guest-: Browse, Register, 
+4. Vendor-: add new airline/hotel, change details.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-Open [http://localhost:3002/test](http://localhost:3002/test) to check if server API is working fine.
+## 2 relations with other users(For each human user):
+1. Vendors provide services to Clients. 
+2. Clients book tickets via Vendors.  
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 2 relations with domain objects (For each human user):
+1. Member book tickets from a vendor and will have orders associated with it. 
+2. Guest will browse airline tickets.
 
-### `npm test`
+## 2 relations with other domain objects
+1. There exists an order for an airline from a vendor.
+2. There exists an order for a hotel from a vendor.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-##### Kindly use postman collections and environment in testing_collection folder to run your tests in postman.
+## Installation
+The application is built on MERN(MongoDB, Express.js, React.js, Node.js) stack.
 
-### `npm run build`
+### Getting application up and running: 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Running elastic cluster:
+[Follow to run elastic cluster](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-install.html)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Running mongo database:
+[Follow to run mongoDb](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Prerequisites:
+Elastic cluster should be up and running. The hosted url should be same as specified value of ELASTICSEARCH_URI in .env file.
+MongoDb should be up and running. The hosted url should be same as specified value of MONGODB_URI in .env file.
 
-### `npm run eject`
+1. Run ``npm install`` in root directory.
+2. Run ``npm install`` in client directory.
+3. Run ``npm start`` on root directory.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The application should be up and running on the browser. The server will also start in parallel.
+There are several API exposed by backend for CRUD, Search and other features. The same can be tested by
+importing postman collection and environment in folder testing collection.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To initialize your application with some data kindly fire up below endpoints from a client.
+[Initialize all indexes with airports, flights and hotels data]({{host}}/bookingsApp/elastic/index/init/all)
+[Initialize mongo database with airports, flights and hotels data]({{host}}/bookingsApp/elastic/index/init/db)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Kindly use below url to delete all indexes:
+[Delete all indexes from Elastic search]({{host}}/bookingsApp/elastic/delete_all)
