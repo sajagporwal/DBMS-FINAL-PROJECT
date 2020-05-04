@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search Card</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+    <style type="text/css">
+        input{
+
+        }
+        .product-card{
+            padding: 1%;
+        }
+        .flight-details{
+            margin-top: 1%;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 mx-auto">
+            <div class="card product-card">
+                <div class="row card-buttons">
+                    <div class="col-md-5 option-icons">
+                        <Button type="button" onclick="myFunction(1)" class="btn btn-outline-secondary"><i class="material-icons" style="font-size:3em">flight_takeoff</i></Button>
+                        <Button type="button" onclick="myFunction(2)" class="btn btn-outline-secondary"><i class="material-icons" style="font-size:3em">hotel</i></Button>
+                    </div>
+                </div>
+                <div class="hotel" id="hotel-detail">
+                    <div class="row hotel-destination" style="padding-top: 1%">
+                        <div class="col-md-4 destination-city">
+                            <input type="text" id="origin-city-hotel" class="form-control" placeholder="Destination City" required autofocus>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+                <div class="row flight-routes" id="flight-detail" style="padding-top: 1%;display: none;">
+                    <div class="col-md-4 origin-city" style="padding-bottom: 1%">
+                        <input type="text" id="origin-city" class="form-control" placeholder="Origin City" required autofocus>
+                    </div>
+                    <div class="col-md-4 destination-city">
+                        <input type="text" id="destination-city" class="form-control" placeholder="Destination City" required autofocus>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row flight-details">
+                    <div class="col-md-2 departure-date">
+                        <input type="text" id="js-date-arrival" class="form-control" placeholder="Departure Date" style="font-size: 0.8em;">
+                    </div>
+                    <div class="col-md-2 return-date">
+                        <input type="text" id="js-date-departure" class="form-control" placeholder="Arrival Date" style="font-size: 0.8em;">
+                    </div>
+                    <div class="dropdown col-md-6">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="number" id="adult-number" class="form-control" placeholder="Adults" required autofocus>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" id="children-number" class="form-control" placeholder="Children" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="hotel-btn" style="padding-top: 1%; ">
+                    <div class="col-md-12">
+                        <Button class="btn btn-outline-secondary">Search Hotels</Button>
+                    </div>
+                </div>
+
+
+
+
+
+                    <div class="row" id="flight-btn" style="padding-top: 1%;display: none;">
+                        <div class="col-md-12">
+                            <Button class="btn btn-outline-secondary">Search FLights</Button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script>
+
+
+
+    var date = new Date();
+    $("#js-date-arrival, #js-date-departure").datetimepicker({
+                                     timepicker: false,
+                                     datepicker: true,
+                                     format: 'Y-m-d',
+                                     weeks: true,
+                                     minDate:date,
+                                 });
+
+
+    function myFunction(id){
+        if(id===1){
+            document.getElementById("flight-detail").style.display = "inline";
+            document.getElementById("flight-btn").style.display = "block";
+            document.getElementById("hotel-detail").style.display = "none";
+            document.getElementById("hotel-btn").style.display = "none";
+        }
+        else if(id===2){
+            document.getElementById("flight-detail").style.display = "none";
+            document.getElementById("flight-btn").style.display = "none";
+            document.getElementById("hotel-detail").style.display = "block";
+            document.getElementById("hotel-btn").style.display = "block";
+        }
+        }
+
+</script>
+</body>
+</html>

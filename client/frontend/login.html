@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <meta name="google-signin-client_id" content="474863064100-0bt052bdiheqvhbo33g3g3ie5q6bg1io.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+</head>
+<body>
+
+<div class="container">
+
+
+
+    <input id="text-email" type="email" placeholder="Email">
+
+    <input id="text-password" type="password" placeholder="Password">
+
+    <button id="btn-login" class="btn btn-action">Login</button>
+
+    <button id="btn-SignUp" class="btn btn-secondary">Sign Up</button>
+
+    <button id="btn-LogOut" class="btn btn-secondary">Log Out</button>
+
+    <button id="btn-google" class="btn btn-secondary">Google</button>
+</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBzL6PWba4IrS-vag-OZn2G3mIeyCeTNXU",
+        authDomain: "cs5200-fall2019-finalproject.firebaseapp.com",
+        databaseURL: "https://cs5200-fall2019-finalproject.firebaseio.com",
+        projectId: "cs5200-fall2019-finalproject",
+        storageBucket: "cs5200-fall2019-finalproject.appspot.com",
+        messagingSenderId: "474863064100",
+        appId: "1:474863064100:web:a66c136ec3aa66ada8b4b1",
+        measurementId: "G-562381Q3F8"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    firebase.analytics();
+</script>
+<script src="login.js">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</body>
+</html>
